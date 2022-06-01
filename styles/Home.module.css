@@ -2,3 +2,10 @@
   padding: 2rem 2rem;
 }
 
+.main {
+  display: flex;
+}
+
+.content { 
+  flex: 1;
+}

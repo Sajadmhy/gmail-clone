@@ -1,0 +1,43 @@
+#contentHead {
+    display: flex;
+    border-bottom:solid;
+    border-color: lightgray;
+    border-width: 1px;
+}
+
+.headItem:first-child {
+    width: 30px;
+    height: 40px;
+    margin: 5px 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.headItem:not(:first-child) {
+    margin: 5px 10px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 20px;
+    font-size: 20px;
+    border-style: none;
+    transition: 0.3s;
+}
+
+.headItem:hover {
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+    top: 7px;
+}
+
+.space {
+    flex: 1;
+}
