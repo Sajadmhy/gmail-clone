@@ -32,6 +32,7 @@ export default function Content() {
               )
             })
           }
+          <div className={styles.footer}><p>Made with <span>❤</span> by <a href='https://github.com/sajadmhy'>Sajad Mahyaei</a></p></div>
         </div>
       </>
     )
