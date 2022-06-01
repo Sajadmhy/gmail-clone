@@ -1,6 +1,8 @@
 import styles from '../styles/Content.module.css';
 
 export default function Content() {
+  const iterate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+  15, 16, 17, 18, 19, 20];
 
     return (
       <>
@@ -12,6 +14,24 @@ export default function Content() {
             <button className={styles.headItem}>⚉</button>
             <span className={styles.space}></span>
             <button className={styles.headItem}>⌨</button>
+        </div>
+        <div className={styles.content}>
+          {
+            iterate.map((value,index) => { return (            
+              <div key={index} className={styles.mail}>
+          <span className={styles.mailCheck}><input className={styles.checkbox2} type="checkbox"/></span>
+          <span><button className={styles.mailStar}>⭐</button></span>
+          <span className={styles.mailSubject}>GitHub</span>
+          <span className={styles.mailText}>[GitHub] A third-party OAuth application has been added to your account</span>
+          <button className={styles.mailOptions}>🗄️</button>
+          <button className={styles.mailOptions}>🗑️</button>
+          <button className={styles.mailOptions}>📖</button>
+          <button className={styles.mailOptions}>⏰</button>
+          <span className={styles.mailDate}>May 31</span>
+              </div>
+              )
+            })
+          }
         </div>
       </>
     )
