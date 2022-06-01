@@ -1,0 +1,87 @@
+#nav {
+    display: flex;
+    flex-direction: column;
+    background-color: darkgray;
+    width: 80px;
+    padding: 20px 0;
+    transition: 0.2s;
+    border-radius: 10px;
+    box-shadow: gray 5px 5px 50px;
+    margin: 10px 0;
+  }
+  
+  #nav:hover {
+    width: 330px;
+  }
+  
+  #nav:hover .span {
+    display: inline;
+  }
+  
+  #nav:hover .compose {
+    padding: 0 100px 9px 0;
+  }
+  
+  .items {
+    height: 45px;
+    border-style: none;
+    background-color: transparent;
+    text-align: left;
+    padding: 0 0 0 11px;
+    font-size: 20px;
+    transition: 0.3s;
+    border-radius: 25px;
+    margin: 5px 15px;
+  }
+  
+  .items:hover {
+    background-color: lightgray;
+    color: black;
+    cursor: pointer;
+  }
+  
+  .items:active {
+    background-color: gray;
+    color: white;
+  }
+  
+  .items:focus {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  .span {
+    display: none;
+    position: absolute;
+    padding: 6px 0 0 10px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .compose {
+    font-size: 15px;
+    margin: 0 15px;
+    height: 50px;
+    border-radius: 25px;
+    border-style: none;
+    padding: 0 0 9px 0;
+    text-align: center;
+    transition: 0.1s;
+    cursor: pointer;
+  }
+  
+  #compose {
+    display: none;
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .compose:hover {
+    background-color: lightgreen;
+  }
+  
+  .compose:active {
+    background-color: red;
+    color: white;
+  }
