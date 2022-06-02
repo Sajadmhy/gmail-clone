@@ -1,4 +1,5 @@
 import styles from '../styles/Content.module.css';
+import Link from 'next/link';
 
 export default function Content(props) {
   const iterate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,

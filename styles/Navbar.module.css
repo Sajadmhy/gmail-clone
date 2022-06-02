@@ -55,6 +55,7 @@
     transition: 0.3s;
     border-radius: 25px;
     margin: 5px 15px;
+    flex-shrink: 0;
   }
   
   .items:hover {
@@ -91,6 +92,7 @@
     padding: 0 0 9px 0;
     cursor: pointer;
     transition: 0.2s;
+    flex-shrink: 0;
   }
 
   .compose:hover {
