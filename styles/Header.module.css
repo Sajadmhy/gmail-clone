@@ -53,6 +53,7 @@
   
   .searchIcon {
     position: relative;
+    display: inline-block;
     left: 45px;
     top: 7px;
     width: 40px;
@@ -90,6 +91,7 @@
   
   .searchSetting {
     position: relative;
+    display: inline-block;
     right: 45px;
     top: 7px;
     width: 40px;
@@ -135,6 +137,7 @@
     margin-left: -60px;
     font-size: 12px;
     transition: 0.3s;
+    z-index: 200;
   }
 
   .tooltiptext::after {
@@ -149,6 +152,13 @@
   }
 
   .headerItem:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s;
+    transition-delay: 0.3s;
+  }
+
+  .searchIcon:hover .tooltiptext , .searchSetting:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
     transition: 0.3s;

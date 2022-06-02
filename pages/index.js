@@ -7,7 +7,8 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [showNav, setShowNav] = useState(false);
-  
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +18,7 @@ export default function Home() {
       </Head>
       <div className={styles.header}><Header setShowNav={setShowNav}/></div>
       <div className={styles.main}>
-        <div className={styles.navbar}><Navbar showNav={showNav}/></div>
+        <div className={styles.navbar}><Navbar showNav={showNav} showMore={showMore} setShowMore={setShowMore} /></div>
         <div className={styles.content}><Content showNav={showNav}/></div>
       </div>
     </div>

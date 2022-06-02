@@ -9,7 +9,10 @@ export default function Navbar (props) {
         <button className={styles.items}>😴<span className={styles.span}>Snoozed</span></button>
         <button className={styles.items}>🚀<span className={styles.span}>Sent</span></button>
         <button className={styles.items}>💌<span className={styles.span}>Drafts</span></button>
-        <button className={styles.items}>🔽<span className={styles.span}>More</span></button>
+        <button className={styles.items} onClick={() => props.setShowMore (s => !s)}>🔽<span className={styles.span}>More</span></button>
+        <button style={{ display : props.showMore ? 'inline' : 'none' }} className={styles.items}>🛎️<span className={styles.span}>Important</span></button>
+        <button style={{ display : props.showMore ? 'inline' : 'none' }} className={styles.items}>💀<span className={styles.span}>Spam</span></button>
+        <button style={{ display : props.showMore ? 'inline' : 'none' }} className={styles.items}>🗑️<span className={styles.span}>Trash</span></button>
       </div>
     )
 }

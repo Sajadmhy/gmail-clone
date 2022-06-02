@@ -16,9 +16,9 @@ export default function Header(props) {
           </span>
           <p className={styles.gmail}>Gmail</p>
         </button>
-        <button className={styles.searchIcon}>🔍</button>
+        <button className={styles.searchIcon}>🔍<span className={styles.tooltiptext}>Search</span></button>
         <input className={styles.searchBar} type="text" placeholder='Search mail'/>
-        <button className={styles.searchSetting}>⚙</button>
+        <button className={styles.searchSetting}>⚙<span className={styles.tooltiptext}>Show Search Options</span></button>
         <button className={styles.headerItem}><span className={styles.tooltiptext}>Support</span>✋</button>
         <button className={styles.headerItem}>👩‍🔧<span className={styles.tooltiptext}>Settings</span></button>
         <button className={styles.headerItem}>🎮<span className={styles.tooltiptext}>Google Apps</span></button>

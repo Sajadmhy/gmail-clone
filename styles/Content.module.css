@@ -84,6 +84,7 @@
 .mail:hover {
     cursor: pointer;
     box-shadow: rgb(128, 128, 128) 0 0 10px;
+    transition: 0.3s;
 }
 
 .mail:hover .mailOptions {
