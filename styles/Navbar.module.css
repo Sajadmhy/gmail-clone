@@ -1,19 +1,41 @@
 #nav {
     display: flex;
     flex-direction: column;
-    background-color: darkgray;
+    background-color: rgb(169, 169, 169);
     width: 80px;
     padding: 20px 0;
     transition: 0.2s;
     border-radius: 10px;
-    box-shadow: gray 5px 5px 50px;
-    margin: 10px 0;
+    box-shadow: rgb(128, 128, 128) 5px 5px 50px;
+    margin: 100px 0;
+    position: absolute;
+    z-index: 10;
   }
   
+  #wide {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(169, 169, 169);
+    width: 260px;
+    padding: 20px 0;
+    border-radius: 10px;
+    box-shadow: rgb(128, 128, 128) 5px 5px 50px;
+    margin: 100px 0;  }
+
+  #wide .span {
+    display: inline;
+  }
+
+  #wide .compose {
+    padding: 0 100px 9px 0;
+    transition: 0s;
+  }
+
   #nav:hover {
     width: 260px;
+
   }
-  
+
   #nav:hover .span {
     display: inline;
   }
@@ -35,19 +57,19 @@
   }
   
   .items:hover {
-    background-color: lightgray;
-    color: black;
+    background-color: rgb(211, 211, 211);
+    color: rgb(0, 0, 0);
     cursor: pointer;
   }
   
   .items:active {
-    background-color: gray;
-    color: white;
+    background-color: rgb(128, 128, 128);
+    color: rgb(255, 255, 255);
   }
   
   .items:focus {
-    background-color: dodgerblue;
-    color: white;
+    background-color: rgb(30, 144, 255);
+    color: rgb(255, 255, 255);
   }
   
   .span {
@@ -62,26 +84,19 @@
     font-size: 15px;
     margin: 0 15px;
     height: 50px;
+    display: inline-block;
     border-radius: 25px;
     border-style: none;
     padding: 0 0 9px 0;
-    text-align: center;
-    transition: 0.1s;
     cursor: pointer;
+    transition: 0.2s;
   }
-  
-  #compose {
-    display: none;
-    position: absolute;
-    font-size: 15px;
-    font-weight: bold;
-  }
-  
+
   .compose:hover {
-    background-color: lightgreen;
+    background-color: rgb(144, 238, 144);
   }
   
   .compose:active {
-    background-color: red;
-    color: white;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
   }

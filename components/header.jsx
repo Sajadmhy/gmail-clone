@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import styles from '../styles/Header.module.css';
 
-export default function Header() {
+export default function Header(props) {
     return(
         <div id={styles.header}>
-        <button className={styles.headerItem}>📰</button>
+        <button className={styles.headerItem} onClick={() => props.setShowNav(s => !s)}>📰</button>
         <button className={styles.headerItem2}>
           <span className={styles.img}>
           <Image

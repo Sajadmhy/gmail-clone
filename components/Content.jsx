@@ -1,11 +1,11 @@
 import styles from '../styles/Content.module.css';
 
-export default function Content() {
+export default function Content(props) {
   const iterate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
   15, 16, 17, 18, 19, 20];
 
     return (
-      <>
+      <div className={props.showNav ? styles.container2 : styles.container1}>
         <div id={styles.contentHead}>
             <div className={styles.headItem}>
                 <input className={styles.checkbox} type="checkbox"/>
@@ -34,6 +34,6 @@ export default function Content() {
           }
           <div className={styles.footer}><p>Made with <span>❤</span> by <a href='https://github.com/sajadmhy'>Sajad Mahyaei</a></p></div>
         </div>
-      </>
+      </div>
     )
 }

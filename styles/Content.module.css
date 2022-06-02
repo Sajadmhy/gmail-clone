@@ -1,3 +1,12 @@
+.container1 {
+    margin: 0 0 0 80px;
+}
+
+.container2 {
+    margin: 0;
+    /* transition: 0.2s; */
+}
+
 /* header style */
 #contentHead {
     display: flex;
