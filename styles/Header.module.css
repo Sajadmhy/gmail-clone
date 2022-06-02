@@ -16,6 +16,11 @@
     text-align: center;
     margin: 0 15px;
     transition: 0.3s;
+
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black; */
+
   }
   
   .headerItem:hover {
@@ -111,4 +116,41 @@
     .img , .gmail , .headerProfile {
       display: none;
     }
+  }
+
+  /* tooltip text style */
+  .tooltiptext {
+    visibility: hidden;
+    opacity: 0;
+    width: 80px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 120%;
+    left: 90%;
+    margin-left: -60px;
+    font-size: 12px;
+    transition: 0.3s;
+  }
+
+  .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+  }
+
+  .headerItem:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s;
+    transition-delay: 0.3s;
   }
