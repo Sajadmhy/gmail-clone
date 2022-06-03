@@ -13,7 +13,8 @@ export default function Home() {
     15, 16, 17, 18, 19, 20]);
   const [showSupport, setShowSupport] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  
+  const [isChecked, setIsChecked] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -24,7 +25,9 @@ export default function Home() {
       </Head>
       <div className={styles.header} ><Header setShowNav={setShowNav}
       showSupport={showSupport} setShowSupport={setShowSupport} 
-      showSettings={showSettings} setShowSettings={setShowSettings} /></div>
+      showSettings={showSettings} setShowSettings={setShowSettings}
+      isChecked={isChecked} setIsChecked={setIsChecked} showProfile={showProfile}
+      setShowProfile={setShowProfile} /></div>
       <div className={styles.main}>
         <div className={styles.navbar}><Navbar showNav={showNav} 
         showMore={showMore} setShowMore={setShowMore} setNewEmail={setNewEmail}

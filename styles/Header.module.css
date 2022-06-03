@@ -163,7 +163,7 @@
   }
 
   .showSupport {
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(255, 255, 255);
     color:rgb(46, 46, 46);
     position: absolute;
     display: flex;
@@ -173,6 +173,7 @@
     border-radius: 5px;
     top: 70px;
     right: 12%;
+    box-shadow: gray 0 0 2px;
   }
 
   .showSupport div {
@@ -198,7 +199,7 @@
     display: flex;
     position: absolute;
     gap: 10px;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(255, 255, 255);
     width: 200px;
     justify-content: center;
     height: 80px;
@@ -206,7 +207,7 @@
     align-items: center;
     right: 7%;
     top: 80px;
-    
+    box-shadow: gray 0 0 2px;
   }
 
   /* The switch - the box around the slider */
@@ -270,4 +271,42 @@
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* profile show more style */
+.showProfile {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  right: 1%;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  box-shadow: gray 0 0 2px;
+}
+
+.showProfile div:first-child {
+  flex-shrink: 0;
+}
+
+.showProfile div {
+  margin: 5px 0;
+}
+
+.showProfile button {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  margin: 5px 0;
+  background-color: transparent;
+  transition: 0.3s;
+}
+
+.showProfile button:hover {
+  background-color: gray;
+  color: white;
 }
