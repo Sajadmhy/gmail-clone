@@ -1,6 +1,20 @@
+import { useEffect } from 'react';
 import styles from '../styles/NewEmailCompose.module.css';
 
 export default function NewEmailCompose(props) {
+    const closeOnEscapeKeyDown = (e) => {
+      if ((e.charCode || e.keyCode) === 27 ) {
+        props.setNewEmail(false)
+      }
+    };
+    
+    useEffect(() => {
+      document.body.addEventListener('keydown', closeOnEscapeKeyDown)
+      return function cleanUp() {
+        document.body.removeEventListener('keydown', closeOnEscapeKeyDown)
+      }
+    }, []);
+  
     if (!props.newEmail) {
         return null;
     } else {
