@@ -2,9 +2,7 @@ import styles from '../styles/Content.module.css';
 import NewEmailCompose from './NewEmailCompose';
 
 export default function Content(props) {
-  const iterate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-  15, 16, 17, 18, 19, 20];
-
+  
     return (
       <div className={props.showNav ? styles.container2 : styles.container1}>
         <div id={styles.contentHead}>
@@ -18,7 +16,7 @@ export default function Content(props) {
         </div>
         <div className={styles.content}>
           {
-            iterate.map((value,index) => { return (            
+            props.mails.map((value,index) => { return (            
               <div key={index} className={styles.mail}>
           <span className={styles.mailCheck}><input className={styles.checkbox2} type="checkbox"/></span>
           <span><button className={styles.mailStar}>⭐</button></span>

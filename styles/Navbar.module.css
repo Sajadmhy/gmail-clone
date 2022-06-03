@@ -23,8 +23,9 @@
     margin: 0;
   }
 
-  #wide .span {
+  #wide .span, #wide .spanCompose {
     display: inline;
+    opacity: 1;
   }
 
   #wide .compose {
@@ -37,8 +38,9 @@
 
   }
 
-  #nav:hover .span {
+  #nav:hover .span, #nav:hover .spanCompose {
     display: inline;
+    opacity: 1;
   }
   
   #nav:hover .compose {
@@ -75,11 +77,22 @@
   }
   
   .span {
-    display: none;
+    opacity: 0;
     position: absolute;
     padding: 6px 0 0 10px;
     font-size: 15px;
     font-weight: bold;
+    transition: 0.2s;
+    width: 200px;
+  }
+
+  .spanCompose {
+    opacity: 0;
+    position: absolute;
+    padding: 6px 0 0 10px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.2s;
   }
   
   .compose {

@@ -3,8 +3,8 @@ import styles from '../styles/Navbar.module.css'
 export default function Navbar (props) {
     return (
       <div id={ props.showNav ? styles.wide : styles.nav} style={{ height: !props.showMore ? '420px' : '580px' }}>
-        <button className={styles.compose} onClick={() => props.setNewEmail(s => !s)}>✍<span className={styles.span}>Compose</span></button>
-        <button className={styles.items}>📥<span className={styles.span}>Inbox</span></button>
+        <button className={styles.compose} onClick={() => props.setNewEmail(s => !s)}>✍<span className={styles.spanCompose}>Compose</span></button>
+        <button className={styles.items}>📥<span className={styles.span}>Inbox{' '}({props.mails.length})</span></button>
         <button className={styles.items}>⭐<span className={styles.span}>Starred</span></button>
         <button className={styles.items}>😴<span className={styles.span}>Snoozed</span></button>
         <button className={styles.items}>🚀<span className={styles.span}>Sent</span></button>

@@ -1,7 +1,7 @@
 .container {
     position: absolute;
-    bottom: 50px;
-    right: 100px;
+    bottom: 40px;
+    right: 50px;
     background-color: white;
 }
 
@@ -140,4 +140,15 @@
 
 .formItem3Space {
     flex: 1;
+}
+
+
+/* media queries */
+
+@media only screen and (max-height: 500px)  {
+    .container {
+        position: absolute;
+        bottom: -50px;
+        right: 50px;
+    }
 }
