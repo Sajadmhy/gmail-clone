@@ -1,0 +1,143 @@
+.container {
+    position: absolute;
+    bottom: 50px;
+    right: 100px;
+    background-color: white;
+}
+
+.newEmail {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 350px;
+    box-shadow: rgb(128, 128, 128) 0 0 20px;
+    border-radius: 20px 20px 0 0;
+}
+
+
+/* legend style */
+.legend {
+    background-color: rgb(68, 68, 68);
+    height: 40px;
+    padding: 10px 15px;
+    font-size: 15px;
+    display: flex;
+    color: white;
+
+    border-bottom: 1px solid #b1aeb1;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.space { 
+    flex: 1;
+}
+
+.legend button {
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    border-style: none;
+    margin: 3px 0 0 10px;
+}
+
+.legend:hover .close {
+    background-color: #ff5c5c;
+}
+
+.close span {
+    opacity: 0;
+    transition: 0.3s;
+    position: relative;
+    right: 2px;
+    bottom: 2px;
+}
+
+.legend button:hover span {
+    opacity: 1;
+}
+
+.min , .close , .full {
+    transition: 0.3s;
+}
+
+.legend:hover .min { 
+    background-color:  #ffbd4c;
+}
+
+.min span {
+    opacity: 0;
+    transition: 0.3s;
+    position: relative;
+    right: 1px;
+    bottom: 2px;
+}
+
+.legend:hover .full {
+    background-color:  #00ca56;
+}
+
+.full span {
+    opacity: 0;
+    transition: 0.3s;
+    position: relative;
+    right: 2.5px;
+    bottom: 1.5px;
+}
+
+/* input styles */
+.formItem {
+    padding: 5px 10px;
+    margin: 0 10px;
+    height: 35px;
+    border-style: none;
+    border-bottom: lightgray 1px solid;
+    outline: none;
+}
+
+/* textarea */
+.formItem2 {
+    flex: 1;
+    padding: 5px 10px;
+    margin: 10px;
+    border-style: none;
+    outline: none;
+    resize: none;
+}
+
+.formItem3 {
+    padding: 5px 10px;
+    margin: 10px;
+    display: flex;
+}
+
+.formItem3 button:first-child {
+    background-color: rgb(22, 100, 202);
+    color: white;
+    width: 75px;
+    height: 35px;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formItem3 button:nth-child(2) ,
+ .formItem3 button:nth-child(4) {
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.formItem3 button:nth-child(2):hover ,
+ .formItem3 button:nth-child(4):hover {
+     background-color: lightgray;
+ }
+
+ .formItem3 button:nth-child(2) {
+     margin: 0 15px;
+ }
+
+.formItem3Space {
+    flex: 1;
+}

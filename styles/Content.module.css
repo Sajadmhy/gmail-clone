@@ -4,7 +4,6 @@
 
 .container2 {
     margin: 0;
-    /* transition: 0.2s; */
 }
 
 /* header style */
@@ -76,15 +75,16 @@
 .mail {
     display: flex;
     gap: 15px;
-    margin: 5px 0 0 10px;
+    margin: 0 0 0 10px;
     padding: 10px;
     border-radius: 10px;
+    border-bottom: solid gray 1px;
 }
 
 .mail:hover {
     cursor: pointer;
     box-shadow: rgb(128, 128, 128) 0 0 10px;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .mail:hover .mailOptions {
@@ -105,7 +105,7 @@
 }
 
 .mailText {
-    flex: 1;
+    flex: autos;
 }
 
 .mailText , .mailSubject , .mailDate {

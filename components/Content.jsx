@@ -1,5 +1,5 @@
 import styles from '../styles/Content.module.css';
-import Link from 'next/link';
+import NewEmailCompose from './NewEmailCompose';
 
 export default function Content(props) {
   const iterate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
@@ -35,6 +35,7 @@ export default function Content(props) {
           }
           <div className={styles.footer}><p>Made with <span>❤</span> by <a href='https://github.com/sajadmhy'>Sajad Mahyaei</a></p></div>
         </div>
+        <NewEmailCompose newEmail={props.newEmail} setNewEmail={props.setNewEmail}/>
       </div>
     )
 }
