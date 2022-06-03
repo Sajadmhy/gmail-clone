@@ -10,7 +10,8 @@ export default function Home() {
   const [showMore, setShowMore] = useState(false);
   const [newEmail, setNewEmail] = useState(false);
   const [mails, setMails] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-    15, 16, 17, 18, 19, 20])
+    15, 16, 17, 18, 19, 20]);
+  const [showSupport, setShowSupport] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -19,7 +20,8 @@ export default function Home() {
         <meta name="description" content="Gmail clone" />
         <link rel="icon" href="/favicon.webp" />
       </Head>
-      <div className={styles.header}><Header setShowNav={setShowNav}/></div>
+      <div className={styles.header} ><Header setShowNav={setShowNav}
+      showSupport={showSupport} setShowSupport={setShowSupport} /></div>
       <div className={styles.main}>
         <div className={styles.navbar}><Navbar showNav={showNav} 
         showMore={showMore} setShowMore={setShowMore} setNewEmail={setNewEmail}

@@ -161,3 +161,32 @@
     transition: 0.3s;
     transition-delay: 0.3s;
   }
+
+  .showSupport {
+    background-color: rgb(235, 235, 235);
+    color:rgb(46, 46, 46);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 300;
+    width: 230px;
+    border-radius: 5px;
+    top: 70px;
+    right: 12%;
+  }
+
+  .showSupport div {
+    padding: 10px 20px;
+    margin: 5px 0;
+  }
+
+  .showSupport div:hover {
+    background-color: lightgray;
+    cursor: pointer;
+  }
+
+  .showSupport div:nth-child(4) {
+    padding: 15px 20px;
+    margin: 5px 0;
+    border-top: solid lightgray 1px;
+  }
