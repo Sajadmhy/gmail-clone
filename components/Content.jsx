@@ -22,9 +22,9 @@ export default function Content(props) {
           <span><button className={styles.mailStar}>⭐</button></span>
           <span className={styles.mailSubject}>GitHub</span>
           <span className={styles.mailText}>[GitHub] A third-party OAuth application has been added to your account</span>
-          <button className={styles.mailOptions}>🗄️</button>
+          <button className={styles.mailOptions}>🛎️</button>
           <button className={styles.mailOptions}>🗑️</button>
-          <button className={styles.mailOptions}>📖</button>
+          <button className={styles.mailOptions}>💀</button>
           <button className={styles.mailOptions}>⏰</button>
           <span className={styles.mailDate}>May 31</span>
               </div>
