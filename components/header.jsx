@@ -1,15 +1,17 @@
 import Image from 'next/image';
 import styles from '../styles/Header.module.css';
-import { useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 
 export default function Header(props) {
     
-  const ref = useRef();
-  
+  const refSupport = useRef();
+  const refSettings = useRef();
+  const [isChecked, setIsChecked] = useState(false)
+
   useEffect(() => {
     const checkIfClickedOutside = e => {
-      if (props.showSupport && ref.current && !ref.current.contains(e.target)) {
+      if (props.showSupport && refSupport.current && !refSupport.current.contains(e.target)) {
         props.setShowSupport(false)
       }
     }
@@ -21,7 +23,26 @@ export default function Header(props) {
     }
   }, [props.showSupport])
   
+
+  useEffect(() => {
+    const checkIfClickedOutside = e => {
+      if (props.showSettings && refSettings.current && !refSettings.current.contains(e.target)) {
+        props.setShowSettings(false)
+      }
+    }
+
+    document.addEventListener("mousedown", checkIfClickedOutside)
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside)
+    }
+  }, [props.showSettings])
   
+
+  const toggleCheckbox = () => {
+    setIsChecked(s => !s)
+  }
+
   return(
         <div id={styles.header}>
         <button className={styles.headerItem} onClick={() => props.setShowNav(s => !s)}>📰<span className={styles.tooltiptext}>Menu</span></button>
@@ -41,7 +62,7 @@ export default function Header(props) {
         <button className={styles.searchSetting}>⚙<span className={styles.tooltiptext}>Show Search Options</span></button>
         <button className={styles.headerItem} onClick={() => props.setShowSupport(s => !s)}><span className={styles.tooltiptext}>Support</span>✋</button>
         {!props.showSupport? " " : 
-        <div className={styles.showSupport} ref={ref} >
+        <div className={styles.showSupport} ref={refSupport} >
           <div>Help</div>
           <div>Training</div>
           <div>Updates</div>
@@ -49,7 +70,17 @@ export default function Header(props) {
         </div>
         }
         
-        <button className={styles.headerItem}>👩‍🔧<span className={styles.tooltiptext}>Settings</span></button>
+        <button className={styles.headerItem} onClick={() => props.setShowSettings(s => !s)}>👩‍🔧<span className={styles.tooltiptext}>Settings</span></button>
+        {!props.showSettings? " " : 
+        <div className={styles.showSettings} ref={refSettings} >
+          <div>Dark Mode</div>
+          <label className={styles.switch}><input type="checkbox" className={styles.input} 
+          checked={isChecked} onChange={toggleCheckbox}/><span className={`${styles.slider} ${styles.round}`}></span>
+          </label>
+        </div>
+        }
+
+
         <button className={styles.headerItem}>🎮<span className={styles.tooltiptext}>Google Apps</span></button>
         <button className={styles.headerProfile}>
           <Image

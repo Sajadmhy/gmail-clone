@@ -12,6 +12,8 @@ export default function Home() {
   const [mails, setMails] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
     15, 16, 17, 18, 19, 20]);
   const [showSupport, setShowSupport] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  
 
   return (
     <div className={styles.container}>
@@ -21,7 +23,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.webp" />
       </Head>
       <div className={styles.header} ><Header setShowNav={setShowNav}
-      showSupport={showSupport} setShowSupport={setShowSupport} /></div>
+      showSupport={showSupport} setShowSupport={setShowSupport} 
+      showSettings={showSettings} setShowSettings={setShowSettings} /></div>
       <div className={styles.main}>
         <div className={styles.navbar}><Navbar showNav={showNav} 
         showMore={showMore} setShowMore={setShowMore} setNewEmail={setNewEmail}
