@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { useState } from 'react'
 import Content from '../components/Content.jsx'
-import Header from '../components/Header.jsx'
-import Navbar from '../components/Navbar.jsx'
+import Header from '../components/HeaderComp.jsx'
+import Navbar from '../components/NavbarComp.jsx'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
