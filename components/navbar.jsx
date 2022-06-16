@@ -1,6 +1,6 @@
 import styles from '../styles/Navbar.module.css'
 
-export default function Navbar (props) {
+export default function Navbar(props) {
     return (
       <div id={ props.showNav ? styles.wide : styles.nav} style={{ height: !props.showMore ? '420px' : '580px' }}>
         <button className={styles.compose} onClick={() => props.setNewEmail(s => !s)}>✍<span className={styles.spanCompose}>Compose</span></button>
