@@ -1,8 +1,14 @@
 import styles from '../styles/Navbar.module.css'
+import { ThemeContext } from '../pages'
+import { useContext } from 'react'
+import { themeConst } from '../theme/themeConst';
 
 export default function Navbar(props) {
-    return (
-      <div id={ props.showNav ? styles.wide : styles.nav} style={{ height: !props.showMore ? '420px' : '580px' }}>
+    
+  const [theme] = useContext(ThemeContext);
+  
+  return (
+      <div id={ props.showNav ? styles.wide : styles.nav} style={{ height: !props.showMore ? '420px' : '580px', backgroundColor: theme ? themeConst.dark.module : themeConst.light.module }}>
         <button className={styles.compose} onClick={() => props.setNewEmail(s => !s)}>✍<span className={styles.spanCompose}>Compose</span></button>
         <button className={styles.items}>📥<span className={styles.span}>Inbox{' '}({props.mails.length})</span></button>
         <button className={styles.items}>⭐<span className={styles.span}>Starred</span></button>

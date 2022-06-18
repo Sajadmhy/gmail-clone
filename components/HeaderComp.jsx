@@ -1,13 +1,16 @@
 import Image from 'next/image';
 import styles from '../styles/Header.module.css';
-import { useState, useRef, useEffect } from 'react';
-
+import { useState, useRef, useEffect, useContext } from 'react';
+import { themeConst } from '../theme/themeConst';
+import { ThemeContext } from '../pages/index';
 
 export default function Header(props) {
     
   const refSupport = useRef();
   const refSettings = useRef();
   const refProfile = useRef();
+
+  const [theme, setTheme] = useContext(ThemeContext);
 
   // closes Support modal when clicked outside the modal
   useEffect(() => {
@@ -56,39 +59,40 @@ export default function Header(props) {
 
   const toggleCheckbox = () => {
     props.setIsChecked(s => !s)
+    setTheme(s => !s);
   }
 
   return(
         <div id={styles.header}>
-        <button className={styles.headerItem} onClick={() => props.setShowNav(s => !s)}>📰<span className={styles.tooltiptext}>Menu</span></button>
-        <button className={styles.headerItem2}>
-          <span className={styles.img}>
-          <Image
-          src="/favicon.webp"
-          width={40}
-          height={28}
-          alt="gmail icon"
-          />
-          </span>
-          <p className={styles.gmail}>Gmail</p>
-        </button>
-        <button className={styles.searchIcon}>🔍<span className={styles.tooltiptext}>Search</span></button>
-        <input className={styles.searchBar} type="text" placeholder='Search mail'/>
-        <button className={styles.searchSetting}>⚙<span className={styles.tooltiptext}>Show Search Options</span></button>
-        <button className={styles.headerItem} onClick={() => props.setShowSupport(s => !s)}><span className={styles.tooltiptext}>Support</span>✋</button>
-        {!props.showSupport? " " : 
-        <div className={styles.showSupport} ref={refSupport} >
-          <div>Help</div>
-          <div>Training</div>
-          <div>Updates</div>
-          <div><a href="mailto:sajad.mahyaei@gmail.com">Send feedback to me</a></div>
+          <button className={styles.headerItem} onClick={() => props.setShowNav(s => !s)}>📰<span className={styles.tooltiptext}>Menu</span></button>
+          <button className={styles.headerItem2}>
+            <span className={styles.img}>
+            <Image
+            src="/favicon.webp"
+            width={40}
+            height={28}
+            alt="gmail icon"
+            />
+            </span>
+            <p style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.gmail}>Gmail</p>
+          </button>
+          <button className={styles.searchIcon}>🔍<span className={styles.tooltiptext}>Search</span></button>
+          <input style={{backgroundColor: theme ? themeConst.dark.module : themeConst.light.module}} className={styles.searchBar} type="text" placeholder='Search mail'/>
+          <button className={styles.searchSetting}>⚙<span className={styles.tooltiptext}>Show Search Options</span></button>
+          <button className={styles.headerItem} onClick={() => props.setShowSupport(s => !s)}><span className={styles.tooltiptext}>Support</span>✋</button>
+          {!props.showSupport? " " : 
+          <div style={{backgroundColor: theme ? themeConst.dark.bgc : themeConst.light.bgc}} className={styles.showSupport} ref={refSupport} >
+            <div style={{color: theme ? themeConst.dark.text : themeConst.light.text}}>Help</div>
+            <div style={{color: theme ? themeConst.dark.text : themeConst.light.text}}>Training</div>
+            <div style={{color: theme ? themeConst.dark.text : themeConst.light.text}}>Updates</div>
+            <div style={{color: theme ? themeConst.dark.text : themeConst.light.text}}><a href="mailto:hi@sajad.codes">Send feedback to me</a></div>
         </div>
         }
         
         <button className={styles.headerItem} onClick={() => props.setShowSettings(s => !s)}>👩‍🔧<span className={styles.tooltiptext}>Settings</span></button>
         {!props.showSettings? " " : 
-        <div className={styles.showSettings} ref={refSettings} >
-          <div>Dark Mode</div>
+        <div style={{backgroundColor: theme ? themeConst.dark.bgc : themeConst.light.bgc}} className={styles.showSettings} ref={refSettings} >
+          <div style={{color: theme ? themeConst.dark.text : themeConst.light.text}}>Dark Mode</div>
           <label className={styles.switch}><input type="checkbox" className={styles.input} 
           checked={props.isChecked} onChange={toggleCheckbox}/><span className={`${styles.slider} ${styles.round}`}></span>
           </label>
@@ -106,7 +110,9 @@ export default function Header(props) {
           />
         </button>
         {!props.showProfile? " " : 
-        <div className={styles.showProfile} ref={refProfile} >
+        <div 
+        style={{backgroundColor: theme ? themeConst.dark.bgc : themeConst.light.bgc}}
+        className={styles.showProfile} ref={refProfile} >
           <div>
           <Image
           src='/profile.png'
@@ -115,9 +121,9 @@ export default function Header(props) {
           alt="profile picture"
           />
           </div>
-          <div>Sajad Mahyaei</div>
-          <div>sajad.mahyaei@gmail.com</div>
-          <button>Log out</button>
+          <div style={{color: theme ? themeConst.dark.text : themeConst.light.text}}>Sajad Mahyaei</div>
+          <div style={{color: theme ? themeConst.dark.text : themeConst.light.text}}>sajad.mahyaei@gmail.com</div>
+          <button style={{color: theme ? themeConst.dark.text : themeConst.light.text}}>Log out</button>
         </div>
         }
       </div>

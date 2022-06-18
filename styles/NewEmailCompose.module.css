@@ -3,6 +3,8 @@
     bottom: 40px;
     right: 50px;
     background-color: white;
+    border-radius: 7px 7px 0 0;
+    box-shadow: rgb(128, 128, 128) 0 0 20px;
 }
 
 .newEmail {
@@ -10,7 +12,6 @@
     flex-direction: column;
     width: 400px;
     height: 350px;
-    box-shadow: rgb(128, 128, 128) 0 0 20px;
     border-radius: 20px 20px 0 0;
 }
 
@@ -23,7 +24,6 @@
     font-size: 15px;
     display: flex;
     color: white;
-
     border-bottom: 1px solid #b1aeb1;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -136,6 +136,17 @@
 
  .formItem3 button:nth-child(2) {
      margin: 0 15px;
+ }
+
+ .formItem3 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    overflow: hidden;
  }
 
 .formItem3Space {

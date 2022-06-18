@@ -1,5 +1,7 @@
 .container {
   padding: 1rem 2rem;
+  transition: 0.3s;
+  height: 100vh;
 }
 
 .main {

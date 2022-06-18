@@ -6,7 +6,6 @@
     padding: 20px 0;
     transition: 0.2s;
     border-radius: 10px;
-    box-shadow: rgb(128, 128, 128) 5px 5px 50px;
     margin: 0;
     position: absolute;
     z-index: 10;
@@ -19,7 +18,6 @@
     width: 260px;
     padding: 20px 0;
     border-radius: 10px;
-    box-shadow: rgb(128, 128, 128) 5px 5px 50px;
     margin: 0;
   }
 
@@ -61,7 +59,7 @@
   }
   
   .items:hover {
-    background-color: rgb(211, 211, 211);
+    background-color: rgb(165, 165, 165);
     color: rgb(0, 0, 0);
     cursor: pointer;
   }
@@ -94,6 +92,7 @@
     font-size: 15px;
     font-weight: bold;
     transition: 0.2s;
+    display: none;
   }
   
   .compose {

@@ -1,6 +1,6 @@
 #header {
     display: flex;
-    border-bottom: solid;
+    /* border-bottom: solid; */
     padding: 10px 0;
     border-width: 1px;
     border-color: gray;
@@ -46,6 +46,7 @@
     display: inline-block;
     position: absolute;
     margin: 15px 5px;
+    transition: 0.3s;
   }
   
   .searchIcon {
@@ -208,6 +209,11 @@
     right: 7%;
     top: 80px;
     box-shadow: gray 0 0 2px;
+    transition: 0.3s;
+  }
+
+  .showSettings div {
+    transition: 0.3s;
   }
 
   /* The switch - the box around the slider */
@@ -300,6 +306,7 @@
   height: 30px;
   border-radius: 5px;
   border-style: solid;
+  border-color: dodgerblue;
   border-width: 1px;
   margin: 5px 0;
   background-color: transparent;
