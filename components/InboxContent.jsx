@@ -6,7 +6,7 @@ import { useContext, useState } from 'react';
 import { MailContext } from '../pages';
 
 
-export default function Content(props) {
+export default function InboxContent(props) {
     const [theme] = useContext(ThemeContext);
     const [checkAll, setCheckAll] = useState(false);
     const [mails] = useContext(MailContext);
@@ -41,20 +41,20 @@ export default function Content(props) {
         </div>
         <div className={styles.content}>
           {
-            mails.map((value,index) => { return (            
+            mails.map((value,index) => (            
               <div key={index} className={styles.mail}>
           <span className={styles.mailCheck}><input value={checkMail[index]} checked={checkMail[index]} onChange={() => handleCheckMail(index)} className={styles.checkbox2} type="checkbox"/></span>
           <span><button className={styles.mailStar}>⭐</button></span>
-          <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailSubject}>GitHub</span>
-          <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailText}>[GitHub] A third-party OAuth application has been added to your account</span>
+          <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailSubject}>{value.subject}</span>
+          <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailText}>{value.text}</span>
           <button className={styles.mailOptions}>🛎️</button>
           <button className={styles.mailOptions}>🗑️</button>
           <button className={styles.mailOptions}>💀</button>
           <button className={styles.mailOptions}>⏰</button>
-          <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailDate}>May 31</span>
+          <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailDate}>{value.date}</span>
               </div>
               )
-            })
+            ).reverse()
           }
           <div className={styles.footer}><p>Made with <span>❤</span> by <a href='https://github.com/sajadmhy'>Sajad Mahyaei</a></p></div>
         </div>

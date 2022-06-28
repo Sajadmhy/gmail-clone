@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import { createContext, useState } from 'react'
-import Content from '../components/Content.jsx'
+import InboxContent from '../components/InboxContent.jsx'
 import Header from '../components/HeaderComp.jsx'
 import Navbar from '../components/NavbarComp.jsx'
 import styles from '../styles/Home.module.css'
 import { themeConst } from '../theme/themeConst.jsx'
+import { Data } from '../Data/Data.js'
 
 export const ThemeContext = createContext();
 export const MailContext = createContext();
@@ -13,8 +14,7 @@ export default function Home() {
   const [showNav, setShowNav] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const [newEmail, setNewEmail] = useState(false);
-  const [mails, setMails] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-    15, 16, 17, 18, 19, 20]);
+  const [mails, setMails] = useState(Data);
   const [showSupport, setShowSupport] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -40,7 +40,7 @@ export default function Home() {
             <div className={styles.navbar}><Navbar showNav={showNav} 
             showMore={showMore} setShowMore={setShowMore} setNewEmail={setNewEmail}
             mails={mails} /></div>
-            <div className={styles.content}><Content showNav={showNav} 
+            <div className={styles.content}><InboxContent showNav={showNav} 
             newEmail={newEmail} setNewEmail={setNewEmail} mails={mails}/></div>
           </div>
         </div>
