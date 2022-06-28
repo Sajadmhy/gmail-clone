@@ -3,14 +3,14 @@ import NewEmailCompose from './NewEmailCompose';
 import { ThemeContext } from '../pages';
 import { themeConst } from '../theme/themeConst';
 import { useContext, useState } from 'react';
-import { MailContext } from '../pages';
-
+import { MailContext, ContentContext } from '../pages';
 
 export default function InboxContent(props) {
     const [theme] = useContext(ThemeContext);
     const [checkAll, setCheckAll] = useState(false);
     const [mails] = useContext(MailContext);
     const [checkMail, setCheckMail] = useState(mails.map(() => false))
+    const [contents, setContent] = useContext(ContentContext);
 
     const handleCheckAll = () => {
       setCheckAll(s => !s)
@@ -40,8 +40,7 @@ export default function InboxContent(props) {
             <button className={styles.headItem}>⌨</button>
         </div>
         <div className={styles.content}>
-          {
-            mails.map((value,index) => (            
+         {contents[0] && mails.map((value,index) => (            
               <div key={index} className={styles.mail}>
           <span className={styles.mailCheck}><input value={checkMail[index]} checked={checkMail[index]} onChange={() => handleCheckMail(index)} className={styles.checkbox2} type="checkbox"/></span>
           <span><button className={styles.mailStar}>⭐</button></span>
@@ -54,8 +53,28 @@ export default function InboxContent(props) {
           <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailDate}>{value.date}</span>
               </div>
               )
-            ).reverse()
-          }
+            ).reverse()}
+            {
+              contents[1] && <div className={styles.mail}>There no Starred messages yet</div>
+            }
+            {
+              contents[2] && <div className={styles.mail}>There no Snoozed messages yet</div>
+            }
+            {
+              contents[3] && <div className={styles.mail}>There no Sent messages yet</div>
+            }
+            {
+              contents[4] && <div className={styles.mail}>There no Draft messages yet</div>
+            }
+            {
+              contents[5] && <div className={styles.mail}>There no Important messages yet</div>
+            }
+            {
+              contents[6] && <div className={styles.mail}>There no Spam messages yet</div>
+            }
+            {
+              contents[7] && <div className={styles.mail}>There no Trash messages yet</div>
+            }
           <div className={styles.footer}><p>Made with <span>❤</span> by <a href='https://github.com/sajadmhy'>Sajad Mahyaei</a></p></div>
         </div>
         <NewEmailCompose newEmail={props.newEmail} setNewEmail={props.setNewEmail}/>

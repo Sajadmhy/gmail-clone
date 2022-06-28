@@ -9,6 +9,7 @@ import { Data } from '../Data/Data.js'
 
 export const ThemeContext = createContext();
 export const MailContext = createContext();
+export const ContentContext = createContext();
 
 export default function Home() {
   const [showNav, setShowNav] = useState(false);
@@ -19,12 +20,13 @@ export default function Home() {
   const [showSettings, setShowSettings] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
-  
   const [theme, setTheme] = useState(false);
-  
+  const [contents, setContent] = useState([true, false, false, false, false, false, false, false]); 
+
   return (
     <ThemeContext.Provider value={[theme,setTheme]}>
-      <MailContext.Provider value={[mails]}>
+      <MailContext.Provider value={[mails, setMails]}>
+        <ContentContext.Provider value={[contents, setContent]}>
         <div style={{backgroundColor: theme ? themeConst.dark.bgc : themeConst.light.bgc}} className={styles.container}>
           <Head>
             <title>Gmail Clone</title>
@@ -39,11 +41,12 @@ export default function Home() {
           <div className={styles.main}>
             <div className={styles.navbar}><Navbar showNav={showNav} 
             showMore={showMore} setShowMore={setShowMore} setNewEmail={setNewEmail}
-            mails={mails} /></div>
+            /></div>
             <div className={styles.content}><InboxContent showNav={showNav} 
             newEmail={newEmail} setNewEmail={setNewEmail} mails={mails}/></div>
           </div>
         </div>
+        </ContentContext.Provider>
       </MailContext.Provider>
     </ThemeContext.Provider>
   )
