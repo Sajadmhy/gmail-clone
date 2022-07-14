@@ -63,8 +63,6 @@
 
 .content::-webkit-scrollbar {
     width:15px;
-    border-left:1px solid #d1d0d0;
-    border-right:1px solid #2e60c4;
 }
 
 .content::-webkit-scrollbar-thumb {
@@ -106,6 +104,10 @@
     position: relative;
     right: 20px;
     top: 4px;
+}
+
+.mailSubject {
+    font-weight: bold;
 }
 
 .mailText {

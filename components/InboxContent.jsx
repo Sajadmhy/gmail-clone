@@ -8,7 +8,7 @@ import { MailContext, ContentContext } from '../pages';
 export default function InboxContent(props) {
     const [theme] = useContext(ThemeContext);
     const [checkAll, setCheckAll] = useState(false);
-    const [mails] = useContext(MailContext);
+    const [mails, setMails] = useContext(MailContext);
     const [checkMail, setCheckMail] = useState(mails.map(() => false))
     const [contents, setContent] = useContext(ContentContext);
 
@@ -28,6 +28,19 @@ export default function InboxContent(props) {
        }
     }
 
+    const handleStar = (id) => {
+      const newMails = [...mails]
+      let index = newMails.findIndex(mail => mail.id === id);
+      if (newMails[index].starred === true) {
+        newMails[index].starred = false
+      }
+      else {
+        newMails[index].starred = true
+      }
+      setMails(newMails)
+    }
+
+
     return (
       <div className={props.showNav ? styles.container2 : styles.container1}>
         <div id={styles.contentHead} style={{backgroundColor: theme ? themeConst.dark.module : themeConst.light.module}}>
@@ -43,7 +56,7 @@ export default function InboxContent(props) {
          {contents[0] && mails.map((value,index) => (            
               <div key={index} className={styles.mail}>
           <span className={styles.mailCheck}><input value={checkMail[index]} checked={checkMail[index]} onChange={() => handleCheckMail(index)} className={styles.checkbox2} type="checkbox"/></span>
-          <span><button className={styles.mailStar}>⭐</button></span>
+          <span><button className={styles.mailStar} onClick={() =>handleStar(value.id)}>{!value.starred?'⭐':'🌟'}</button></span>
           <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailSubject}>{value.subject}</span>
           <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailText}>{value.text}</span>
           <button className={styles.mailOptions}>🛎️</button>
@@ -54,8 +67,24 @@ export default function InboxContent(props) {
               </div>
               )
             ).reverse()}
+
             {
-              contents[1] && <div className={styles.mail}>There no Starred messages yet</div>
+              contents[1] && <div className={styles.content}>
+                {mails.every(value => value.starred === false) ? <div className={styles.mail}>{'There no Starred messages yet'}</div>:  
+                mails.filter(value => value.starred === true).map((value,index) => (
+                  <div key={index} className={styles.mail}>
+          <span className={styles.mailCheck}><input value={checkMail[index]} checked={checkMail[index]} onChange={() => handleCheckMail(index)} className={styles.checkbox2} type="checkbox"/></span>
+          <span><button className={styles.mailStar} onClick={() =>handleStar(value.id)}>{!value.starred?'⭐':'🌟'}</button></span>
+          <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailSubject}>{value.subject}</span>
+          <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailText}>{value.text}</span>
+          <button className={styles.mailOptions}>🛎️</button>
+          <button className={styles.mailOptions}>🗑️</button>
+          <button className={styles.mailOptions}>💀</button>
+          <button className={styles.mailOptions}>⏰</button>
+          <span style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.mailDate}>{value.date}</span>
+              </div>
+              )).reverse()
+                }</div>
             }
             {
               contents[2] && <div className={styles.mail}>There no Snoozed messages yet</div>
