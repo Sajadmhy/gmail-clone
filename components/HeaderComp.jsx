@@ -9,13 +9,17 @@ export default function Header(props) {
   const refSupport = useRef();
   const refSettings = useRef();
   const refProfile = useRef();
+  const refSupportBtn = useRef();
+  const refSettingsBtn = useRef();
+  const refProfileBtn = useRef();
 
   const [theme, setTheme] = useContext(ThemeContext);
 
   // closes Support modal when clicked outside the modal
   useEffect(() => {
     const checkIfClickedOutside = e => {
-      if (props.showSupport && refSupport.current && !refSupport.current.contains(e.target)) {
+      if (props.showSupport && refSupport.current && !refSupport.current.contains(e.target) 
+      && !refSupportBtn.current.contains(e.target)) {
         props.setShowSupport(false)
       }
     }
@@ -30,7 +34,8 @@ export default function Header(props) {
 // closes Setting modal when clicked outside the modal
   useEffect(() => {
     const checkIfClickedOutside = e => {
-      if (props.showSettings && refSettings.current && !refSettings.current.contains(e.target)) {
+      if (props.showSettings && refSettings.current && !refSettings.current.contains(e.target)
+       && !refSettingsBtn.current.contains(e.target)) {
         props.setShowSettings(false)
       }
     }
@@ -45,7 +50,8 @@ export default function Header(props) {
 // closes Profile modal when clicked outside the modal
   useEffect(() => {
   const checkIfClickedOutside = e => {
-    if (props.showProfile && refProfile.current && !refProfile.current.contains(e.target)) {
+    if (props.showProfile && refProfile.current && !refProfile.current.contains(e.target) 
+    && !refProfileBtn.current.contains(e.target)) {
       props.setShowProfile(false)
     }
   }
@@ -77,9 +83,11 @@ export default function Header(props) {
             <p style={{color: theme ? themeConst.dark.text : themeConst.light.text}} className={styles.gmail}>Gmail</p>
           </button>
           <button className={styles.searchIcon}>🔍<span className={styles.tooltiptext}>Search</span></button>
-          <input style={{backgroundColor: theme ? themeConst.dark.module : themeConst.light.module}} className={styles.searchBar} type="text" placeholder='Search mail'/>
+          <input style={{backgroundColor: theme ? themeConst.dark.module : themeConst.light.module}} 
+          className={styles.searchBar} type="text" placeholder='Search mail'/>
           <button className={styles.searchSetting}>⚙<span className={styles.tooltiptext}>Show Search Options</span></button>
-          <button className={styles.headerItem} onClick={() => props.setShowSupport(s => !s)}><span className={styles.tooltiptext}>Support</span>✋</button>
+          <button ref={refSupportBtn} className={styles.headerItem} onClick={() => props.setShowSupport(s => !s)}>
+            <span className={styles.tooltiptext}>Support</span>✋</button>
           {!props.showSupport? " " : 
           <div style={{backgroundColor: theme ? themeConst.dark.bgc : themeConst.light.bgc}} className={styles.showSupport} ref={refSupport} >
             <div style={{color: theme ? themeConst.dark.text : themeConst.light.text}}>Help</div>
@@ -89,7 +97,8 @@ export default function Header(props) {
         </div>
         }
         
-        <button className={styles.headerItem} onClick={() => props.setShowSettings(s => !s)}>👩‍🔧<span className={styles.tooltiptext}>Settings</span></button>
+        <button ref={refSettingsBtn} className={styles.headerItem} onClick={() => props.setShowSettings(s => !s)}>
+          👩‍🔧<span className={styles.tooltiptext}>Settings</span></button>
         {!props.showSettings? " " : 
         <div style={{backgroundColor: theme ? themeConst.dark.bgc : themeConst.light.bgc}} className={styles.showSettings} ref={refSettings} >
           <div style={{color: theme ? themeConst.dark.text : themeConst.light.text}}>Dark Mode</div>
@@ -101,7 +110,7 @@ export default function Header(props) {
 
 
         <button className={styles.headerItem}>🎮<span className={styles.tooltiptext}>Google Apps</span></button>
-        <button className={styles.headerProfile} onClick={() => props.setShowProfile(s => !s)}>
+        <button ref={refProfileBtn} className={styles.headerProfile} onClick={() => props.setShowProfile(s => !s)}>
           <Image
           src="/profile1.png"
           width={50}
